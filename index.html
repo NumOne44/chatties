@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatties - Your Cozy Corner</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=Nunito:wght@200;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Login Page -->
+      <div id="login-page" class="page active">
+        <div class="login-container">
+          <div class="cozy-header">
+            <h1 class="app-title">
+              <span class="title-main">Chatties</span>
+              <span class="title-subtitle">Your cozy corner 🌸</span>
+            </h1>
+          </div>
+
+          <div class="login-form">
+            <div class="input-group">
+              <label for="username">What should we call you?</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="Your cozy name..."
+                maxlength="20"
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="about-me"
+                >Tell us something sweet about yourself</label
+              >
+              <input
+                type="text"
+                id="about-me"
+                placeholder="I love rainy afternoons and warm tea ☕"
+                maxlength="50"
+              />
+            </div>
+
+            <div class="avatar-section">
+              <label>Pick your doodle friend</label>
+              <div class="avatar-grid" id="avatar-grid">
+                <!-- Avatars will be populated by JavaScript -->
+              </div>
+            </div>
+
+            <button id="join-chat" class="cozy-button" disabled>
+              Join our cozy space ✨
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Page -->
+      <div id="chat-page" class="page">
+        <div class="chat-container">
+          <div class="chat-header">
+            <div class="user-info">
+              <div class="user-avatar" id="current-user-avatar"></div>
+              <span class="user-name" id="current-user-name"></span>
+            </div>
+            <div class="chat-controls">
+              <button id="theme-toggle" class="icon-button">🎨</button>
+              <button id="support-button" class="icon-button">💝</button>
+              <button id="leave-chat" class="icon-button">👋</button>
+            </div>
+          </div>
+
+          <div class="chat-messages" id="chat-messages">
+            <div class="welcome-message">
+              <p>
+                Welcome to our cozy corner! Share some warmth with everyone 💕
+              </p>
+            </div>
+          </div>
+
+          <div class="sticker-toolbar" id="sticker-toolbar">
+            <!-- Stickers will be populated by JavaScript -->
+          </div>
+
+          <div class="chat-input-container">
+            <input
+              type="text"
+              id="chat-input"
+              placeholder="Share something cozy..."
+              maxlength="200"
+            />
+            <button id="send-message" class="send-button">💌</button>
+          </div>
+
+          <div
+            class="typing-indicator"
+            id="typing-indicator"
+            style="display: none"
+          >
+            <span>Someone is typing something sweet...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exit Page -->
+      <div id="exit-page" class="page">
+        <div class="exit-container">
+          <div class="sad-doodle">
+            <div class="sad-character">🥺</div>
+            <h2>Are you really leaving me?</h2>
+            <p>But we were having such a cozy time together...</p>
+          </div>
+
+          <div class="exit-buttons">
+            <button id="stay-button" class="cozy-button primary">
+              I'll stay 🥹
+            </button>
+            <button id="goodbye-button" class="cozy-button secondary">
+              Okay, goodbye... 💔
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support Page -->
+      <div id="support-page" class="page">
+        <div class="support-container">
+          <div class="support-header">
+            <h2>Support this cozy space 💝</h2>
+            <p>
+              Help keep our little corner of the internet warm and welcoming
+            </p>
+          </div>
+
+          <div class="support-content">
+            <div class="support-reasons">
+              <div class="reason-card">
+                <span class="reason-icon">☕</span>
+                <h3>Buy me a coffee</h3>
+                <p>Keep me caffeinated while I add more cozy features</p>
+              </div>
+
+              <div class="reason-card">
+                <span class="reason-icon">🌱</span>
+                <h3>Help us grow</h3>
+                <p>Support server costs and new doodle features</p>
+              </div>
+
+              <div class="reason-card">
+                <span class="reason-icon">💕</span>
+                <h3>Spread the love</h3>
+                <p>Help us create more safe, cozy spaces online</p>
+              </div>
+            </div>
+
+            <div class="support-links">
+              <a href="#" class="support-link kofi" target="_blank">
+                <span class="link-icon">☕</span>
+                Support on Ko-fi
+              </a>
+
+              <a href="#" class="support-link patreon" target="_blank">
+                <span class="link-icon">🌟</span>
+                Become a Patron
+              </a>
+
+              <a href="#" class="support-link tipjar" target="_blank">
+                <span class="link-icon">💰</span>
+                Tip Jar
+              </a>
+            </div>
+
+            <div class="support-thanks">
+              <p>Every little bit helps keep this cozy corner alive! 🌸</p>
+              <p>Thank you for being part of our warm community 💕</p>
+            </div>
+          </div>
+
+          <button id="back-to-chat" class="cozy-button">Back to chat 💬</button>
+        </div>
+      </div>
+
+      <!-- Theme Selector Modal -->
+      <div id="theme-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Choose your cozy vibe ✨</h3>
+            <button id="close-theme-modal" class="close-button">×</button>
+          </div>
+          <div class="theme-grid" id="theme-grid">
+            <!-- Themes will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Wholesome Notification -->
+      <div id="wholesome-notification" class="notification">
+        <span id="notification-text"></span>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
+l>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
